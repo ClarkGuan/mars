@@ -1,4 +1,4 @@
-// Tencent is pleased to support the open source community by making GAutomator available.
+// Tencent is pleased to support the open source community by making Mars available.
 // Copyright (C) 2016 THL A29 Limited, a Tencent company. All rights reserved.
 
 // Licensed under the MIT License (the "License"); you may not use this file except in 
@@ -51,7 +51,7 @@ void log_formater(const XLoggerInfo* _info, const char* _logbody, PtrBuffer& _lo
     static int error_count = 0;
     static int error_size = 0;
 
-    if (_log.MaxLength() <= _log.Length() + 5 * 1024) {  // allowd len(_log) <= 11K(16K - 5K)
+    if (_log.MaxLength() <= _log.Length() + 5 * 1024) {  // allowed len(_log) <= 11K(16K - 5K)
         ++error_count;
         error_size = (int)strnlen(_logbody, 1024 * 1024);
 

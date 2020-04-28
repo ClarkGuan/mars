@@ -1,4 +1,4 @@
-// Tencent is pleased to support the open source community by making GAutomator available.
+// Tencent is pleased to support the open source community by making Mars available.
 // Copyright (C) 2016 THL A29 Limited, a Tencent company. All rights reserved.
 
 // Licensed under the MIT License (the "License"); you may not use this file except in 
@@ -40,7 +40,7 @@
 #define socket_close closesocket
 
 #define socket_errno WSAGetLastError()
-#define socket_strerror gai_strerror
+#define socket_strerror gai_strerrorA//gai_strerror
 
 
 #ifdef __cplusplus
@@ -69,7 +69,9 @@ int          socket_inet_pton(int af, const char* src, void* dst);
 
 
 typedef uint32_t in_addr_t;
+#if !_WIN64
 typedef SSIZE_T ssize_t;
+#endif
 typedef int socklen_t;
 typedef unsigned short in_port_t;
 

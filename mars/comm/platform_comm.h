@@ -1,4 +1,4 @@
-// Tencent is pleased to support the open source community by making GAutomator available.
+// Tencent is pleased to support the open source community by making Mars available.
 // Copyright (C) 2016 THL A29 Limited, a Tencent company. All rights reserved.
 
 // Licensed under the MIT License (the "License"); you may not use this file except in 
@@ -23,15 +23,14 @@
 
 #include <string>
 
+#ifdef ANDROID 
 #include "mars/comm/thread/mutex.h"
+#endif
+
 
 #ifndef __cplusplus
 #error "C++ only"
 #endif
-
-
-
-bool getProxyInfo(int& _port, std::string& _str_proxy, const std::string& _host = "");
 
 enum NetType {
     kNoNet = -1,
@@ -47,7 +46,7 @@ struct WifiInfo {
     std::string ssid;
     std::string bssid;
 };
-bool getCurWifiInfo(WifiInfo& _wifi_info);
+bool getCurWifiInfo(WifiInfo& _wifi_info, bool _force_refresh = false);
 
 struct SIMInfo {
     std::string isp_code;
@@ -170,7 +169,7 @@ struct RadioAccessNetworkInfo {
 
         3.9G：
         LTE FDD：Wi-Fi终结者，拥有比WLAN快10倍的能力，估速将达到4M／S以上，兼容性强！是CDMA2000和WCDMA歧路同归的重要制式！（中国未发展）
-        LTE TDD：世b0会展出对象，尖端技术，比FDD早发展一年，网速和FDD差不多，但不成熟，兼容性弱！（湖北移动、上海移动已启动试运营，国家大力推广）
+        LTE TDD：世博会展出对象，尖端技术，比FDD早发展一年，网速和FDD差不多，但不成熟，兼容性弱！（湖北移动、上海移动已启动试运营，国家大力推广）
     ***/
 
     std::string  radio_access_network;
@@ -241,7 +240,7 @@ float publiccomponent_GetSystemVersion();
 #endif
 
 #ifdef ANDROID
-bool startAlarm(int64_t id, int after);
+bool startAlarm(int type, int64_t id, int after);
 bool stopAlarm(int64_t id);
 
 void* wakeupLock_new();

@@ -1,4 +1,4 @@
-// Tencent is pleased to support the open source community by making GAutomator available.
+// Tencent is pleased to support the open source community by making Mars available.
 // Copyright (C) 2016 THL A29 Limited, a Tencent company. All rights reserved.
 
 // Licensed under the MIT License (the "License"); you may not use this file except in 
@@ -39,7 +39,7 @@ class TimingSync {
     TimingSync(ActiveLogic& _active_logic);
     ~TimingSync();
 
-    void OnLongLinkStatuChanged(LongLink::TLongLinkStatus _status);
+    void OnLongLinkStatuChanged(LongLink::TLongLinkStatus _status, const std::string& _channel_id);
     void OnActiveChanged(bool _is_actived);
     void OnNetworkChange();
 
